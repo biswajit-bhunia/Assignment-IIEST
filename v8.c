@@ -112,15 +112,6 @@ int main() {
         end = clock();
         double best_bin_time = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-        // Best Case Fibonacci Search Timing (Searching for an element that exists)
-        start = clock();
-        int index_fib = -1;
-        for (int j = 0; j < 1000; j++) {
-            index_fib = fib_search(arr, n, search_element_best);  // Searching for an element in the middle
-        }
-        end = clock();
-        double best_fib_time = ((double)(end - start)) / CLOCKS_PER_SEC;
-
         // Worst Case Binary Search Timing (Searching for non-existing element)
         start = clock();
         for (int j = 0; j < 1000; j++) {
@@ -137,10 +128,9 @@ int main() {
         end = clock();
         fib_times[i] = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-        // Print Best Case Search Times and Indices to Terminal
+        // Print Best Case Binary Search Times and Indices to Terminal
         printf("Array Size: %d\n", n);
         printf("Best Case Binary Search - Searching for element %d: %f seconds, Index: %d\n", search_element_best, best_bin_time, index_bin);
-        printf("Best Case Fibonacci Search - Searching for element %d: %f seconds, Index: %d\n", search_element_best, best_fib_time, index_fib);
         printf("Worst Case Binary Search - Searching for element %d: %f seconds\n", search_element_worst, bin_times[i]);
         printf("Worst Case Fibonacci Search - Searching for element %d: %f seconds\n\n", search_element_worst, fib_times[i]);
 
